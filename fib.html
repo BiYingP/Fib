@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		body {
+			font-family: verdana;
+			font-size: 90%;
+			border-width: 10px;
+			border-left-width: 10px;
+			border-right-width: 10px;
+		}
+        table,th,td {
+            border: 1px solid black;
+        }
+        th,td {
+            width: 100px;
+        }
+	</style>
+    
+	<script type="text/javascript">
+        
+		// calculate Fibonacci Numbers
+        function calFib(n){
+			if (n == 0 || n == 1){
+				return n;
+			}
+			else {
+				return calFib(n - 1) + calFib(n - 2);
+			}
+		}
+
+        // check for inputs
+		function fib(){
+            
+			var numStr = document.getElementById("num").value;
+			var numInt = parseInt(numStr);
+            
+			// check for integer
+			if (isNaN(numInt)){
+				alert("Invalid Input. Please Enter a Number.");
+				
+			}
+            // check for postive integer
+			else if (numInt < 0){
+				alert("Please enter a postive integer");	
+			}
+			else {
+                // call createTable()
+				createTable(numInt);				
+			}
+		}
+        
+		// creates a table 
+		function createTable(n){
+            var table = document.getElementById("tb");
+            str = "<table><tr><th>n</th><th>fib(n)</th></tr>";
+            var i = 0;
+            str +="<tr><td>" + i + "</td>"
+            str +="<td>" + calFib(i) + "</td>"
+            str +="</tr>"
+			for (i = 0; i < n; i++){
+				str += "<tr>";
+				str += "<td>" + (i+1) + "</td>";
+                str += "<td>" + calFib(i+1)+ "</td>"
+				str += "</tr>";
+			}
+			str += "</table>";
+			table.innerHTML = str;
+		}
+	</script>  
+	<title>Fibonacci Number</title>
+</head>
+<body>
+	<h1>Fibonacci Number</h1>
+	<img src= "fib.png" alt= "fibonacci image" height= "210" width="350">
+    <h2>History</h2>
+	<p>Fibonacci numbers are the first two numbers in the Fibonacci sequence are either 1 and 1, or 0 and 1, and each subsequent number is the sum of the previous two. For example,<br> 0, 1, 1, 2, 3, 5, 8, etc.<br>The Fibonacci sequence appears in Indian mathematics, in connection with Sanskrit prosody. In the Sanskrit tradition of prosody, there was interest in enumerating all patterns of long (L) syllables that are 2 units of duration, and short (S) syllables that are 1 unit of duration. Counting the different patterns of L and S of a given duration results in the Fibonacci numbers: the number of patterns that are m short syllables long is the Fibonacci number Fm + 1.
+	</p>
+	<h2>Calculate Fibonacci Numbers</h2>
+
+	<input type="text" id="num"><br>
+	<button type="button" onclick="fib()">Compute!</button>
+	<div id= "tb"></div>
+</body>
+</html>
