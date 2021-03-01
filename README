@@ -13,3 +13,7 @@ createTable() for displaying results in the table format
 Add style inside HTML for body and table
 
 A webpage begin with history of Fibonacci numbers along with its image. A text box allow user to enter a positive integer, use compute button to calculate Fibonacci numbers and display results in a table
+
+Screenshot
+
+![alt text](./ScreenShot.png)
